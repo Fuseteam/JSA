@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core.objects;
+package me.diax.jsa.core.objects.user;
 
 import me.diax.jsa.core.enums.Role;
+import me.diax.jsa.core.objects.contact.Contact;
 
 /**
  * Created by Comportment on 22/04/17.

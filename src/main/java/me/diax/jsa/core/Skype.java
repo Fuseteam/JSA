@@ -26,21 +26,57 @@ import me.diax.jsa.core.request.Dispatcher;
  */
 public interface Skype {
 
+    /**
+     *
+     * @return The {@link Status} of the client.
+     */
     Status getStatus();
 
+    /**
+     * Sets the status of the client.
+     *
+     * @param status Sets the {@link Status} of the client.
+     * @return An instance of this, useful for chaining.
+     */
     Skype setStatus(Status status);
 
+    /**
+     * Sets the mood message of the client.
+     *
+     * @param moodMessage The mood message to set.
+     * @return An instance of this, useful for chaining.
+     */
     Skype setMoodMessage(String moodMessage);
 
+    /**
+     *
+     * @return The mood message of the client.
+     */
     String getMoodMessage();
 
-    String getPassword();
-
+    /**
+     *
+     * @return The username of the client.
+     */
     String getUsername();
 
+    /**
+     * Tries to login to Skype [called when a {@link SkypeBuilder} is built]
+     *
+     * @return An instance of this, useful for chaining.
+     */
     Skype login();
 
+    /**
+     * Logs out of Skype.
+     *
+     * @return An instance of this, useful for chaining.
+     */
     Skype logout();
-    
+
+    /**
+     *
+     * @return The dispatcher linked to this client.
+     */
     Dispatcher getDispatcher();
 }

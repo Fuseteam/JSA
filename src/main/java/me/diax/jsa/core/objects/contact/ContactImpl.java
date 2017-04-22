@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core.objects;
+package me.diax.jsa.core.objects.contact;
 
 import me.diax.jsa.core.SkypeImpl;
 import me.diax.jsa.core.enums.Status;

@@ -17,7 +17,7 @@
 package me.diax.jsa.core.objects.message;
 
 import me.diax.jsa.core.SkypeImpl;
-import me.diax.jsa.core.objects.User;
+import me.diax.jsa.core.objects.user.User;
 import me.diax.jsa.core.objects.channel.MessageChannel;
 
 import java.sql.Timestamp;

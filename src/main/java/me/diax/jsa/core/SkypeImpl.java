@@ -46,11 +46,6 @@ public abstract class SkypeImpl implements Skype {
     }
 
     @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
     public String getUsername() {
         return username;
     }
@@ -63,6 +58,7 @@ public abstract class SkypeImpl implements Skype {
 
     @Override
     public Skype setMoodMessage(String moodMessage) {
+        if (moodMessage.length() > 200) throw new IllegalArgumentException("Mood message must be 200 or less characters long.");
         this.moodMessage = moodMessage;
         return this;
     }

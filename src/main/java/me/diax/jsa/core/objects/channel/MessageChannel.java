@@ -17,7 +17,7 @@
 package me.diax.jsa.core.objects.channel;
 
 import me.diax.jsa.core.Skype;
-import me.diax.jsa.core.objects.User;
+import me.diax.jsa.core.objects.user.User;
 
 import java.util.List;
 

@@ -14,38 +14,42 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core.objects;
+package me.diax.jsa.core.objects.contact;
 
-import me.diax.jsa.core.enums.Role;
+import me.diax.jsa.core.enums.Status;
 
 /**
  * Created by Comportment on 22/04/17.
  *
- * abUSER OwO
+ * My name is badi, but you can call me anytime.
  */
-public interface User {
+public interface Contact {
 
-    /**
-     *
-     * @return The unique username of the user.
-     */
+    String getFirstName();
+
+    String getLastName();
+
     String getUsername();
 
-    /**
-     *
-     * @return The display name of the user.
-     */
-    String getDisplayname();
+    String getDisplayName();
 
-    /**
-     *
-     * @return The {@link Role} of the user.
-     */
-    Role getRole();
+    String getAvatarUrl();
 
-    /**
-     *
-     * @return The {@link Contact} of the user.
-     */
-    Contact getContact();
+    String getMoodMessage();
+
+    String getCountry();
+
+    String getCity();
+
+    Status getStatus();
+
+    boolean isBlocked();
+
+    boolean isFriend();
+
+    Contact block();
+
+    Contact blockAndReportAbuse();
+
+    Contact unblock();
 }

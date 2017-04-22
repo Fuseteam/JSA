@@ -36,7 +36,7 @@ public class Requests {
 	protected static final String apiBaseUrl = "https://api.botframework.com";
 	protected static final String tokenBaseUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/token";
 	
-	public static final Request getToken = new Request(HttpMethod.POST, tokenBaseUrl); //body - grant_type=client_credentials&client_id=<YOUR MICROSOFT APP ID>&client_secret=<YOUR MICROSOFT APP PASSWORD>&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+	public static final Request getToken = new Request(HttpMethod.POST, tokenBaseUrl, true); //body - grant_type=client_credentials&client_id=<YOUR MICROSOFT APP ID>&client_secret=<YOUR MICROSOFT APP PASSWORD>&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 	
 	public Response build(Request request, String... params) {
 		return build(request, null, params);

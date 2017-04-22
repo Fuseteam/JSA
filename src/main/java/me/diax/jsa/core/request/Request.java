@@ -31,27 +31,23 @@ public class Request {
 	protected final boolean requiresBody;
 	
 	public Request(HttpMethod method, String baseUrl) {
-		this.method = method;
-		this.baseUrl = baseUrl;
-		this.point = "";
-		this.headers = new Headers();
-		this.requiresBody = false;
+		this(method, baseUrl, "", new Headers(), false);
 	}
 	
-	public Request(HttpMethod method, String baseUrl, Headers header) {
-		this.method = method;
-		this.baseUrl = baseUrl;
-		this.point = "";
-		this.headers = header;
-		this.requiresBody = false;
+	public Request(HttpMethod method, String baseUrl, boolean requiresBody) {
+		this(method, baseUrl, "", new Headers(), requiresBody);
 	}
 	
-	public Request(HttpMethod method, String baseUrl, String point, Headers header) {
-		this.method = method;
-		this.baseUrl = baseUrl;
-		this.point = point;
-		this.headers = header;
-		this.requiresBody = false;
+	public Request(HttpMethod method, String baseUrl, Headers headers) {
+		this(method, baseUrl, "", headers, false);
+	}
+	
+	public Request(HttpMethod method, String baseUrl, Headers headers, boolean requiresBody) {
+		this(method, baseUrl, "", headers, requiresBody);
+	}
+	
+	public Request(HttpMethod method, String baseUrl, String point, Headers headers) {
+		this(method, baseUrl, point, headers, false);
 	}
 	
 	public Request(HttpMethod method, String baseUrl, String point, Headers header, boolean requiresBody) {

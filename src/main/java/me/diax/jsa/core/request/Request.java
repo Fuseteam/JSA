@@ -30,7 +30,7 @@ public class Request {
 	protected final Headers headers;
 	protected final boolean requiresBody;
 	
-	protected String body;
+	protected String body = null;
 	
 	private boolean hasBody = false;
 	

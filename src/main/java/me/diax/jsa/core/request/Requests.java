@@ -39,11 +39,7 @@ public class Requests {
 	public static final Request getToken = new Request(HttpMethod.POST, tokenBaseUrl, true); //body - grant_type=client_credentials&client_id=<YOUR MICROSOFT APP ID>&client_secret=<YOUR MICROSOFT APP PASSWORD>&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 	
 	public Response build(Request request, String... params) {
-		return build(request, null, params);
-	}
-	
-	public Response build(Request request, String body, String... params) {
-		BaseRequest _request = create(request, body, params);
+		BaseRequest _request = create(request, params);
 		JsonNode data = null;
 		try {
 			data = _request.asJsonAsync().get().getBody();
@@ -55,13 +51,14 @@ public class Requests {
 		return new Response(data);
 	}
 	
-	protected BaseRequest create(Request request, String body, String... params) {
+	protected BaseRequest create(Request request, String... params) {
 		String url = request.baseUrl;
 		if(!request.point.isEmpty()) {
 			int count = StringUtils.count("%s", request.point);
 			if(count<params.length||params.length>count) throw new IllegalArgumentException("Param count and %s count do nat match!");
 			else url += String.format(request.point, (Object[])params);
 		}
+		String body = request.body;
 		if((body==null||body.isEmpty()||!request.hasBody())&&request.requiresBody) throw new IllegalArgumentException("Request requires body.");
 		if(request.requiresBody) switch(request.method) {
 			case DELETE:

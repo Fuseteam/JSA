@@ -27,11 +27,21 @@ public class MessageBuilder {
 
     private String content;
 
+    /**
+     *
+     * @param content The content to set of the message.
+     * @return The instance of this, useful for chaining.
+     */
     public MessageBuilder setContent(String content) {
+        if (content.length() > 7990) throw new IllegalArgumentException("The message content can not be longer than 7790 characters long.");
         this.content = content;
         return this;
     }
 
+    /**
+     *
+     * @return A {@link Message} built with all the fields.
+     */
     public Message build() {
         if (content == null) throw new NullPointerException("Content can not be null!");
         return new MessageImpl(

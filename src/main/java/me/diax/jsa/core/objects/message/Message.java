@@ -28,17 +28,54 @@ import java.sql.Timestamp;
  */
 public interface Message {
 
+    /**
+     *
+     * @return The raw content of the message.
+     */
     String getRawContent();
+
+    /**
+     * Sets the raw content of the message.
+     *
+     * @param content The content to set.
+     * @return An instance of this, useful for chaining.
+     */
     Message setRawContent(String content);
 
+    /**
+     *
+     * @return The id assigned to the message by the client.
+     */
     String getClientId();
 
+    /**
+     *
+     * @return The unique id of the message assigned by Skype.
+     */
     String getId();
 
+    /**
+     *
+     * @return Gets the timestamp the message was sent at.
+     */
     Timestamp getTimestamp();
+
+    /**
+     *
+     * @param timestamp Sets the timestamp of the message.
+     * @return An instance of this, useful for chaining.
+     */
     Message setTimestamp(Timestamp timestamp);
 
+    /**
+     *
+     * @return The author of the message.
+     */
     User getSender();
 
+    /**
+     *
+     * @return The channel the message was sent in.
+     */
     MessageChannel getChannel();
 }

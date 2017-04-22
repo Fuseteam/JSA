@@ -30,6 +30,10 @@ public class Request {
 	protected final Headers headers;
 	protected final boolean requiresBody;
 	
+	protected String body;
+	
+	private boolean hasBody = false;
+	
 	public Request(HttpMethod method, String baseUrl) {
 		this(method, baseUrl, "", new Headers(), false);
 	}
@@ -56,5 +60,15 @@ public class Request {
 		this.point = point;
 		this.headers = header;
 		this.requiresBody = requiresBody;
+	}
+	
+	public Request body(String body) {
+		this.body = body;
+		this.hasBody = body!=null && !body.isEmpty();
+		return this;
+	}
+	
+	public boolean hasBody() {
+		return hasBody;
 	}
 }

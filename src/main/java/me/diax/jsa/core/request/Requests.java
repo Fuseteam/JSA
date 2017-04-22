@@ -62,7 +62,7 @@ public class Requests {
 			if(count<params.length||params.length>count) throw new IllegalArgumentException("Param count and %s count do nat match!");
 			else url += String.format(request.point, (Object[])params);
 		}
-		if((body==null||body.isEmpty())&&request.requiresBody) throw new IllegalArgumentException("Request requires body.");
+		if((body==null||body.isEmpty()||!request.hasBody())&&request.requiresBody) throw new IllegalArgumentException("Request requires body.");
 		if(request.requiresBody) switch(request.method) {
 			case DELETE:
 				return addHeaders(Unirest.delete(url).body(body), request.headers);

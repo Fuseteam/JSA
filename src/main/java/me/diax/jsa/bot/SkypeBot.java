@@ -14,26 +14,30 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core;
+package me.diax.jsa.bot;
 
-import me.diax.jsa.core.enums.Status;
+import me.diax.jsa.core.SkypeImpl;
 
 /**
  * Created by Comportment on 22/04/17.
  *
- * First!
+ * Beep boop!
  */
-public interface Skype {
+public class SkypeBot extends SkypeImpl {
 
-    Status getStatus();
+    public SkypeBot(String username, String password) {
+        super(username, password);
+    }
 
-    Skype setStatus(Status status);
+    @Override
+    public SkypeBot login() {
+        //TODO: login
+        return this;
+    }
 
-    String getPassword();
-
-    String getUsername();
-
-    Skype login();
-
-    Skype logout();
+    @Override
+    public SkypeBot logout() {
+        //TODO: Logout
+        return this;
+    }
 }

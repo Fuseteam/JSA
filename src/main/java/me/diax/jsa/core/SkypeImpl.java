@@ -25,7 +25,7 @@ import me.diax.jsa.core.enums.Status;
  * <br>
  * But where? owo
  */
-class SkypeImpl implements Skype {
+public abstract class SkypeImpl implements Skype {
 
     private Status status;
     private final String username;

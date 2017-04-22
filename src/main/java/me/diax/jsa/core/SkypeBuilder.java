@@ -16,7 +16,9 @@
 
 package me.diax.jsa.core;
 
+import me.diax.jsa.bot.SkypeBot;
 import me.diax.jsa.core.enums.AccountType;
+import me.diax.jsa.user.SkypeUser;
 
 /**
  * Created by Comportment on 22/04/17.
@@ -81,6 +83,13 @@ public class SkypeBuilder {
      * @return A {@link Skype} object using the values set.
      */
     public Skype build() {
-        return new SkypeImpl();
+        switch (type) {
+            case BOT:
+                return new SkypeBot(username, password);
+            case USER:
+                return new SkypeUser(username, password);
+            default:
+                return null;
+        }
     }
 }

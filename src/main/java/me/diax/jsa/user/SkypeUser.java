@@ -14,26 +14,29 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core;
+package me.diax.jsa.user;
 
-import me.diax.jsa.core.enums.Status;
+import me.diax.jsa.core.SkypeImpl;
 
 /**
  * Created by Comportment on 22/04/17.
  *
- * First!
+ * I fight for the Users!
  */
-public interface Skype {
+public class SkypeUser extends SkypeImpl {
 
-    Status getStatus();
+    public SkypeUser(String username, String password) {
+        super(username, password);
+    }
 
-    Skype setStatus(Status status);
+    @Override
+    public SkypeUser login() {
+        //TODO: Stuff
+        return this;
+    }
 
-    String getPassword();
-
-    String getUsername();
-
-    Skype login();
-
-    Skype logout();
+    public SkypeUser logout() {
+        //TODO: Stuff
+        return this;
+    }
 }

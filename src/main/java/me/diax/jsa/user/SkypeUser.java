@@ -25,8 +25,11 @@ import me.diax.jsa.core.SkypeImpl;
  */
 public class SkypeUser extends SkypeImpl {
 
+    private String password;
+
     public SkypeUser(String username, String password) {
         super(username, password);
+        this.password = password;
     }
 
     @Override

@@ -29,14 +29,12 @@ import me.diax.jsa.core.request.Dispatcher;
 public abstract class SkypeImpl implements Skype {
 
     private final String username;
-    private final String password;
     private String moodMessage;
     private Status status;
     private Dispatcher dispatcher;
 
     public SkypeImpl(String username, String password) {
         this.username = username;
-        this.password = password;
         dispatcher = new Dispatcher();
     }
 

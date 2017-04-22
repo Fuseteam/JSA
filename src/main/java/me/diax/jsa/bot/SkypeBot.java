@@ -28,14 +28,16 @@ import me.diax.jsa.core.request.Requests;
 public class SkypeBot extends SkypeImpl {
 
 	private String token;
-	
+	private String secret;
+
     public SkypeBot(String client_id, String secret) {
         super(client_id, secret);
+        this.secret = secret;
     }
 
     @Override
     public SkypeBot login() {
-    	Request request = Requests.getToken.body("grant_type=client_credentials&client_id=" + getUsername() + "&client_secret=" + getPassword() + "&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default");
+    	Request request = Requests.getToken.body("grant_type=client_credentials&client_id=" + getUsername() + "&client_secret=" + secret + "&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default");
     	getDispatcher().dispatch(request).handle(success -> {
     		if(success.getStatus() == 200) {
         		token = success.getBody().getObject().getString("access_token");

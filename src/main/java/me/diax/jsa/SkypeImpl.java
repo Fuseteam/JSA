@@ -19,7 +19,9 @@ package me.diax.jsa;
 /**
  * Created by Comportment on 22/04/17.
  *
- * First!
+ * This file structure is starting to look copied from somewhere
+ * <br>
+ * But where? owo
  */
-public interface Skype {
+public class SkypeImpl implements Skype {
 }

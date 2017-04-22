@@ -24,6 +24,6 @@ package me.diax.jsa;
 public class SkypeBuilder {
 
     public Skype build() {
-        return new Skype();
+        return new SkypeImpl();
     }
 }

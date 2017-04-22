@@ -29,11 +29,10 @@ public class StringUtils {
 	 * @return The amount of elements found
 	 */
 	public static int count(CharSequence sequence, String string) {
-		if(sequence==null||sequence.length()<1) throw new IllegalArgumentException("Count element can't be null or empty.");
-		if(string==null) throw new NullPointerException("The provided String is null."); 
-		int remaining = string.length()-string.replace(sequence, "").length();
-		if(sequence.length()>1) remaining = remaining/sequence.length();
+		if(sequence == null || sequence.length() < 1) throw new IllegalArgumentException("Count element can't be null or empty.");
+		if(string == null) throw new NullPointerException("The provided String is null.");
+		int remaining = string.length() - string.replace(sequence, "").length();
+		if(sequence.length() > 1) remaining = remaining/sequence.length();
 		return remaining;
 	}
-	
 }

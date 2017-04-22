@@ -29,12 +29,11 @@ public class Headers {
 	protected final Map<String, String> map;
 	
 	public Headers() {
-		map = new HashMap<String, String>();
+		map = new HashMap<>();
 	}
 	
 	public Headers add(String key, String value) {
 		map.put(key, value);
 		return this;
 	}
-	
 }

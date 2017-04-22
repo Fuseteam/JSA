@@ -108,7 +108,5 @@ public class Requests {
 		public DefaultException(String s) {
 			super(s);
 		}
-		
 	}
-	
 }

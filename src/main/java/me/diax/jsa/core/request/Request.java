@@ -61,5 +61,4 @@ public class Request {
 		this.headers = header;
 		this.requiresBody = requiresBody;
 	}
-	
 }

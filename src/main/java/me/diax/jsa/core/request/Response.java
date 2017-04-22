@@ -58,5 +58,4 @@ public class Response {
 		if(failed) return null;
 		else return data;
 	}
-	
 }

@@ -25,7 +25,21 @@ import me.diax.jsa.core.enums.Role;
  */
 public interface User {
 
+    /**
+     *
+     * @return The unique username of the user.
+     */
     String getUsername();
+
+    /**
+     *
+     * @return The display name of the user.
+     */
     String getDisplayname();
+
+    /**
+     *
+     * @return The {@link Role} of the user.
+     */
     Role getRole();
 }

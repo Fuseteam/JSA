@@ -18,7 +18,6 @@ package me.diax.jsa.core;
 
 import me.diax.jsa.bot.SkypeBot;
 import me.diax.jsa.core.enums.AccountType;
-import me.diax.jsa.core.request.Requests;
 import me.diax.jsa.user.SkypeUser;
 
 /**

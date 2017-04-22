@@ -14,33 +14,23 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core;
-
-import me.diax.jsa.core.enums.Status;
-import me.diax.jsa.core.request.Dispatcher;
+package me.diax.jsa.core.request;
 
 /**
- * Created by Comportment on 22/04/17.
- *
- * First!
+ * Created by Felix Vogel on 22/04/17
+ * 
+ * The Dispatcher for http/https requests
  */
-public interface Skype {
+public class Dispatcher {
 
-    Status getStatus();
-
-    Skype setStatus(Status status);
-
-    Skype setMoodMessage(String moodMessage);
-
-    String getMoodMessage();
-
-    String getPassword();
-
-    String getUsername();
-
-    Skype login();
-
-    Skype logout();
-    
-    Dispatcher getDispatcher();
+	Requests requests;
+	
+	public Dispatcher() {
+		requests = new Requests();
+	}
+	
+	public Response dispatch(Request request, String... params) {
+		return requests.build(request, params);
+	}
+	
 }

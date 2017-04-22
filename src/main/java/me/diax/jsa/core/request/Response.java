@@ -18,6 +18,7 @@ package me.diax.jsa.core.request;
 
 import java.util.function.Consumer;
 
+import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 
 /**
@@ -27,11 +28,11 @@ import com.mashape.unirest.http.JsonNode;
  */
 public class Response {
 
-	protected JsonNode data;
+	protected HttpResponse<JsonNode> data;
 	protected boolean failed;
 	protected Throwable reason;
 	
-	public Response(JsonNode data) {
+	public Response(HttpResponse<JsonNode> data) {
 		this.data = data;
 		this.failed = false;
 		this.reason = null;
@@ -43,18 +44,18 @@ public class Response {
 		this.reason = reason;
 	}
 	
-	public void handle(Consumer<JsonNode> handle) {
+	public void handle(Consumer<HttpResponse<JsonNode>> handle) {
 		handle(handle, null);
 	}
 	
-	public void handle(Consumer<JsonNode> success, Consumer<Throwable> failure) {
+	public void handle(Consumer<HttpResponse<JsonNode>> success, Consumer<Throwable> failure) {
 		if(success!=null&&!this.failed) if(data!=null) success.accept(data);
 		if(failure!=null&&this.failed) {
 			if(reason!=null) failure.accept(reason);
 		}
 	}
 
-	public JsonNode get() {
+	public HttpResponse<JsonNode> get() {
 		if(failed) return null;
 		else return data;
 	}

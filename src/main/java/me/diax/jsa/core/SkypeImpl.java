@@ -17,6 +17,7 @@
 package me.diax.jsa.core;
 
 import me.diax.jsa.core.enums.Status;
+import me.diax.jsa.core.request.Dispatcher;
 
 /**
  * Created by Comportment on 22/04/17.
@@ -31,10 +32,12 @@ public abstract class SkypeImpl implements Skype {
     private final String password;
     private String moodMessage;
     private Status status;
+    private Dispatcher dispatcher;
 
     public SkypeImpl(String username, String password) {
         this.username = username;
         this.password = password;
+        dispatcher = new Dispatcher();
     }
 
     @Override
@@ -67,5 +70,10 @@ public abstract class SkypeImpl implements Skype {
     @Override
     public String getMoodMessage() {
         return moodMessage;
+    }
+    
+    @Override
+    public Dispatcher getDispatcher() {
+    	return dispatcher;
     }
 }

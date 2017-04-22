@@ -17,6 +17,8 @@
 package me.diax.jsa.bot;
 
 import me.diax.jsa.core.SkypeImpl;
+import me.diax.jsa.core.request.Request;
+import me.diax.jsa.core.request.Requests;
 
 /**
  * Created by Comportment on 22/04/17.
@@ -25,6 +27,8 @@ import me.diax.jsa.core.SkypeImpl;
  */
 public class SkypeBot extends SkypeImpl {
 
+	private String token;
+	
     public SkypeBot(String username, String password) {
         super(username, password);
     }
@@ -32,6 +36,17 @@ public class SkypeBot extends SkypeImpl {
     @Override
     public SkypeBot login() {
         //TODO: login
+    	Request request = Requests.getToken.body("grant_type=client_credentials&client_id=" + getUsername() + "&client_secret=" + getPassword() + "&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default");
+    	getDispatcher().dispatch(request).handle(success -> {
+    		if(success.getStatus() == 200) {
+        		token = success.getBody().getObject().getString("access_token");
+        		System.out.println(token);
+    		} else {
+    			System.out.println(success.getBody());
+    		}
+    	}, failure -> {
+    		System.out.println(failure.getMessage());
+    	});
         return this;
     }
 

@@ -19,6 +19,7 @@ package me.diax.jsa.core.request;
 import java.util.concurrent.ExecutionException;
 
 import com.mashape.unirest.http.HttpMethod;
+import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.BaseRequest;
@@ -36,13 +37,13 @@ public class Requests {
 	protected static final String apiBaseUrl = "https://api.botframework.com";
 	protected static final String tokenBaseUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/token";
 	
-	public static final Request getToken = new Request(HttpMethod.POST, tokenBaseUrl, true); //body - grant_type=client_credentials&client_id=<YOUR MICROSOFT APP ID>&client_secret=<YOUR MICROSOFT APP PASSWORD>&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+	public static final Request getToken = new Request(HttpMethod.POST, tokenBaseUrl, new Headers().add("Host", "login.microsoftonline.com").add("Content-Type", "application/x-www-form-urlencoded"), true); //body - grant_type=client_credentials&client_id=<YOUR MICROSOFT APP ID>&client_secret=<YOUR MICROSOFT APP PASSWORD>&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 	
 	public Response build(Request request, String... params) {
 		BaseRequest _request = create(request, params);
-		JsonNode data = null;
+		HttpResponse<JsonNode> data = null;
 		try {
-			data = _request.asJsonAsync().get().getBody();
+			data = _request.asJsonAsync().get();
 		} catch(InterruptedException e) {
 			return new Response(e);
 		} catch(ExecutionException e) {

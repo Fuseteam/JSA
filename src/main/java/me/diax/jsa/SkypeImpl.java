@@ -23,5 +23,5 @@ package me.diax.jsa;
  * <br>
  * But where? owo
  */
-public class SkypeImpl implements Skype {
+class SkypeImpl implements Skype {
 }

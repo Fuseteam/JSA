@@ -23,6 +23,47 @@ package me.diax.jsa;
  */
 public class SkypeBuilder {
 
+    private String username;
+    private String password;
+
+    /**
+     * Method that sets the username and password.
+     *
+     * @param username The login username to set.
+     * @param password The password to set.
+     * @return An instance of this, useful for chaining.
+     */
+    public SkypeBuilder setCredentials(String username, String password) {
+        return setUsername(username).setPassword(password);
+    }
+
+    /**
+     * Method that sets the username.
+     *
+     * @param username The username to set.
+     * @return An instance of this, useful for chaining.
+     */
+    public SkypeBuilder setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    /**
+     * Method that sets the password.
+     *
+     * @param password The password to set.
+     * @return An instance of this, useful for chaining.
+     */
+    public SkypeBuilder setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    /**
+     * Builds the object and returns a {@link Skype} object.
+     *
+     * @return A {@link Skype} object using the values set.
+     */
     public Skype build() {
         return new SkypeImpl();
     }

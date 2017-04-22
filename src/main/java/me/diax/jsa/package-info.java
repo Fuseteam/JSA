@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package me.diax.jsa;
-
 /**
- * Created by Comportment on 22/04/17.
+ * The root package for JSA.
  *
- * First!
+ * See {@link me.diax.jsa.Skype}.
  */
-public class Skype {
-}
+package me.diax.jsa;

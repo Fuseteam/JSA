@@ -28,7 +28,7 @@ public class SkypeUser extends SkypeImpl {
     private String password;
 
     public SkypeUser(String username, String password) {
-        super(username, password);
+        super(username);
         this.password = password;
     }
 

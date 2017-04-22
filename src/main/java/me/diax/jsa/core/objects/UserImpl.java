@@ -32,4 +32,9 @@ public class UserImpl implements User {
     public Role getRole() {
         return role;
     }
+
+    @Override
+    public Contact getContact() {
+        return null; //TODO: Contact WS and get contact.
+    }
 }

@@ -16,6 +16,7 @@
 
 package me.diax.jsa.core.objects;
 
+import me.diax.jsa.core.SkypeImpl;
 import me.diax.jsa.core.enums.Status;
 
 /**
@@ -25,6 +26,7 @@ import me.diax.jsa.core.enums.Status;
  */
 public class ContactImpl implements Contact {
 
+    private SkypeImpl skype;
     private String firstName;
     private String lastName;
     private String username;
@@ -36,6 +38,12 @@ public class ContactImpl implements Contact {
     private Status status;
     private boolean isBlocked;
     private boolean isFriend;
+
+    public ContactImpl(SkypeImpl skype, String username) {
+        this.skype = skype;
+        this.username = username;
+        //TODO: Contact WS and get other fields;
+    }
 
     @Override
     public String getFirstName() {

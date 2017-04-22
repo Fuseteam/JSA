@@ -18,6 +18,8 @@ package me.diax.jsa.core;
 
 import me.diax.jsa.core.enums.Status;
 import me.diax.jsa.core.request.Dispatcher;
+import me.diax.jsa.core.request.Request;
+import me.diax.jsa.core.request.Requests;
 
 /**
  * Created by Comportment on 22/04/17.
@@ -32,9 +34,11 @@ public abstract class SkypeImpl implements Skype {
     private String moodMessage;
     private Status status;
     private Dispatcher dispatcher;
+    private final Request request;
 
     public SkypeImpl(String username, String password) {
         this.username = username;
+        request = Requests.getToken.body("grant_type=client_credentials&client_id=" + username + "&client_secret=" + password + "&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default");
         dispatcher = new Dispatcher();
     }
 
@@ -69,5 +73,9 @@ public abstract class SkypeImpl implements Skype {
     @Override
     public Dispatcher getDispatcher() {
     	return dispatcher;
+    }
+    
+    public Request getRequest() {
+    	return request;
     }
 }

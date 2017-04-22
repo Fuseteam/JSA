@@ -14,16 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jsa;
-
 /**
- * Created by Comportment on 22/04/17.
- *
- * First!
+ * The root package for all of the core enums in SJA.
  */
-public interface Skype {
-
-    Status getStatus();
-
-    Skype setStatus(Status status);
-}
+package me.diax.jsa.core.enums;

@@ -14,9 +14,26 @@
  * limitations under the License.
  */
 
+package me.diax.jsa.core.enums;
+
 /**
- * The root package for JSA.
+ * Created by Comportment on 22/04/17.
  *
- * See {@link me.diax.jsa.core.Skype}.
+ * First enum, yay!
  */
-package me.diax.jsa;
+public enum AccountType {
+
+    BOT(true),
+    USER(false),
+    GUEST(true);
+
+    private boolean isBot;
+
+    AccountType(boolean isBot) {
+        this.isBot = isBot;
+    }
+
+    public boolean isBot() {
+        return isBot;
+    }
+}

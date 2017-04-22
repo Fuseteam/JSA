@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package me.diax.jsa;
+package me.diax.jsa.core;
+
+import me.diax.jsa.core.enums.AccountType;
 
 /**
  * Created by Comportment on 22/04/17.

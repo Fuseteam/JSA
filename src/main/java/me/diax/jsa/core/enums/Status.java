@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 
-package me.diax.jsa;
+package me.diax.jsa.core.enums;
 
 /**
  * Created by Comportment on 22/04/17.
  *
- * This file structure is starting to look copied from somewhere
- * <br>
- * But where? owo
+ * Or was it?
  */
-class SkypeImpl implements Skype {
+public enum Status {
 
-    private Status status;
+    ONLINE(),
+    AWAY(),
+    DO_NOT_DISTURB(),
+    INVISIBLE(),
+    UNKNOWN();
 
-    @Override
-    public Status getStatus() {
-        return status;
-    }
-
-    @Override
-    public Skype setStatus(Status status) {
-        this.status = status;
-        return this;
+    Status() {
     }
 }

@@ -14,26 +14,29 @@
  * limitations under the License.
  */
 
-package me.diax.jsa;
+package me.diax.jsa.core;
+
+import me.diax.jsa.core.enums.Status;
 
 /**
  * Created by Comportment on 22/04/17.
  *
- * First enum, yay!
+ * This file structure is starting to look copied from somewhere
+ * <br>
+ * But where? owo
  */
-public enum AccountType {
+class SkypeImpl implements Skype {
 
-    BOT(true),
-    USER(false),
-    GUEST(true);
+    private Status status;
 
-    private boolean isBot;
-
-    AccountType(boolean isBot) {
-        this.isBot = isBot;
+    @Override
+    public Status getStatus() {
+        return status;
     }
 
-    public boolean isBot() {
-        return isBot;
+    @Override
+    public Skype setStatus(Status status) {
+        this.status = status;
+        return this;
     }
 }

@@ -14,9 +14,18 @@
  * limitations under the License.
  */
 
+package me.diax.jsa.core;
+
+import me.diax.jsa.core.enums.Status;
+
 /**
- * The root package for JSA.
+ * Created by Comportment on 22/04/17.
  *
- * See {@link me.diax.jsa.core.Skype}.
+ * First!
  */
-package me.diax.jsa;
+public interface Skype {
+
+    Status getStatus();
+
+    Skype setStatus(Status status);
+}

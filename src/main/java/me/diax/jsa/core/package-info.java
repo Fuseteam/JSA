@@ -14,21 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jsa;
-
 /**
- * Created by Comportment on 22/04/17.
- *
- * Or was it?
+ * The root package for all of the core objects which are shared in SJA.
  */
-public enum Status {
-
-    ONLINE(),
-    AWAY(),
-    DO_NOT_DISTURB(),
-    INVISIBLE(),
-    UNKNOWN();
-
-    Status() {
-    }
-}
+package me.diax.jsa.core;

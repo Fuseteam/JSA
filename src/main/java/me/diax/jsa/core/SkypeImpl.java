@@ -27,9 +27,10 @@ import me.diax.jsa.core.enums.Status;
  */
 public abstract class SkypeImpl implements Skype {
 
-    private Status status;
     private final String username;
     private final String password;
+    private String moodMessage;
+    private Status status;
 
     public SkypeImpl(String username, String password) {
         this.username = username;
@@ -55,5 +56,16 @@ public abstract class SkypeImpl implements Skype {
     public Skype setStatus(Status status) {
         this.status = status;
         return this;
+    }
+
+    @Override
+    public Skype setMoodMessage(String moodMessage) {
+        this.moodMessage = moodMessage;
+        return this;
+    }
+
+    @Override
+    public String getMoodMessage() {
+        return moodMessage;
     }
 }

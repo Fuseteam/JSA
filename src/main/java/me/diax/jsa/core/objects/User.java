@@ -14,30 +14,18 @@
  * limitations under the License.
  */
 
-package me.diax.jsa.core;
+package me.diax.jsa.core.objects;
 
-import me.diax.jsa.core.enums.Status;
+import me.diax.jsa.core.enums.Role;
 
 /**
  * Created by Comportment on 22/04/17.
  *
- * First!
+ * abUSER OwO
  */
-public interface Skype {
-
-    Status getStatus();
-
-    Skype setStatus(Status status);
-
-    Skype setMoodMessage(String moodMessage);
-
-    String getMoodMessage();
-
-    String getPassword();
+public interface User {
 
     String getUsername();
-
-    Skype login();
-
-    Skype logout();
+    String getDisplayname();
+    Role getRole();
 }

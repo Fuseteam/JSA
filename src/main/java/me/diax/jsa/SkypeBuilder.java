@@ -29,31 +29,14 @@ public class SkypeBuilder {
     private String password;
 
     /**
-     * Constructor to create a user.
-     */
-    public SkypeBuilder() {
-        this.type = AccountType.USER;
-    }
-
-    /**
-     * Constructor to set the account type.
-     *
-     * @param asBot If the account type should be a bot.
-     */
-    public SkypeBuilder(boolean asBot) {
-        if (asBot) {
-            type = AccountType.BOT;
-        } else {
-            type = AccountType.USER;
-        }
-    }
-
-    /**
      * Constructor to set the account type.
      *
      * @param type The {@link AccountType} of the account.
      */
     public SkypeBuilder(AccountType type) {
+        if (type.equals(AccountType.GUEST)) {
+            throw new UnsupportedOperationException("Guest accounts have not been implemented yet.");
+        }
         this.type = type;
     }
 
@@ -64,7 +47,7 @@ public class SkypeBuilder {
      * @param password The password to set.
      * @return An instance of this, useful for chaining.
      */
-    public SkypeBuilder setUserCredentials(String username, String password) {
+    public SkypeBuilder setCredentials(String username, String password) {
         return setUsername(username).setPassword(password);
     }
 

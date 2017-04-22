@@ -24,7 +24,8 @@ package me.diax.jsa;
 public enum AccountType {
 
     BOT(true),
-    USER(false);
+    USER(false),
+    GUEST(true);
 
     private boolean isBot;
 

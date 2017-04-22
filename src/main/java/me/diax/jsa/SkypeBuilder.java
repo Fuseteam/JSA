@@ -23,8 +23,29 @@ package me.diax.jsa;
  */
 public class SkypeBuilder {
 
+    private AccountType type;
+
     private String username;
     private String password;
+
+    public SkypeBuilder(AccountType type) {
+        this.type = type;
+    }
+
+    private enum AccountType {
+        USER(false),
+        BOT(true);
+
+        private boolean isBot;
+
+        AccountType(boolean isBot) {
+            this.isBot = isBot;
+        }
+
+        public boolean isBot() {
+            return isBot;
+        }
+    }
 
     /**
      * Method that sets the username and password.
@@ -33,7 +54,8 @@ public class SkypeBuilder {
      * @param password The password to set.
      * @return An instance of this, useful for chaining.
      */
-    public SkypeBuilder setCredentials(String username, String password) {
+    public SkypeBuilder setUserCredentials(String username, String password) {
+        if (type.isBot) throw new UnsupportedOperationException("This method can only be used for user accounts.");
         return setUsername(username).setPassword(password);
     }
 
@@ -44,6 +66,7 @@ public class SkypeBuilder {
      * @return An instance of this, useful for chaining.
      */
     public SkypeBuilder setUsername(String username) {
+        if (type.isBot) throw new UnsupportedOperationException("This method can only be used for user accounts.");
         this.username = username;
         return this;
     }
@@ -55,6 +78,7 @@ public class SkypeBuilder {
      * @return An instance of this, useful for chaining.
      */
     public SkypeBuilder setPassword(String password) {
+        if (type.isBot) throw new UnsupportedOperationException("This method can only be used for user accounts.");
         this.password = password;
         return this;
     }

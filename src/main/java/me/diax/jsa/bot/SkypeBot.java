@@ -29,13 +29,12 @@ public class SkypeBot extends SkypeImpl {
 
 	private String token;
 	
-    public SkypeBot(String username, String password) {
-        super(username, password);
+    public SkypeBot(String client_id, String secret) {
+        super(client_id, secret);
     }
 
     @Override
     public SkypeBot login() {
-        //TODO: login
     	Request request = Requests.getToken.body("grant_type=client_credentials&client_id=" + getUsername() + "&client_secret=" + getPassword() + "&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default");
     	getDispatcher().dispatch(request).handle(success -> {
     		if(success.getStatus() == 200) {
@@ -44,9 +43,7 @@ public class SkypeBot extends SkypeImpl {
     		} else {
     			System.out.println(success.getBody());
     		}
-    	}, failure -> {
-    		System.out.println(failure.getMessage());
-    	});
+    	}, failure -> System.out.println(failure.getMessage()));
         return this;
     }
 

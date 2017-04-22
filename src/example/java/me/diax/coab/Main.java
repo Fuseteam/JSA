@@ -17,7 +17,7 @@ public class Main {
     }
 
     public void main() {
-        Skype skype = new SkypeBuilder(AccountType.BOT).setCredentials("email", "password").build();
+        Skype skype = new SkypeBuilder(AccountType.BOT).setCredentials("45a37a68-68ef-4b04-9bd1-a4f0bd915e01", "JfmDQd3OVhF6gVbGWpsc0MT").build();
         skype.setMoodMessage("Powered by SJA (Skype Java API)");
         skype.setStatus(Status.AWAY);
         skype.logout();

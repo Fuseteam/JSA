@@ -19,11 +19,16 @@ package me.diax.jsa;
 /**
  * Created by Comportment on 22/04/17.
  *
- * First!
+ * Or was it?
  */
-public interface Skype {
+public enum Status {
 
-    Status getStatus();
+    ONLINE(),
+    AWAY(),
+    DO_NOT_DISTURB(),
+    INVISIBLE(),
+    UNKNOWN();
 
-    Skype setStatus(Status status);
+    Status() {
+    }
 }

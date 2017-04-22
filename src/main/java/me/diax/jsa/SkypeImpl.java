@@ -24,4 +24,17 @@ package me.diax.jsa;
  * But where? owo
  */
 class SkypeImpl implements Skype {
+
+    private Status status;
+
+    @Override
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public Skype setStatus(Status status) {
+        this.status = status;
+        return this;
+    }
 }

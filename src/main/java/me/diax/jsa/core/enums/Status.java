@@ -23,12 +23,19 @@ package me.diax.jsa.core.enums;
  */
 public enum Status {
 
-    ONLINE(),
-    AWAY(),
-    DO_NOT_DISTURB(),
-    INVISIBLE(),
-    UNKNOWN();
+    ONLINE("Online"),
+    AWAY("Away"),
+    DO_NOT_DISTURB("Do Not Disturb"),
+    INVISIBLE("Invisible"),
+    UNKNOWN("Unknown");
 
-    Status() {
+    private String name;
+
+    Status(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

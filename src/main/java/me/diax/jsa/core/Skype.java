@@ -28,4 +28,8 @@ public interface Skype {
     Status getStatus();
 
     Skype setStatus(Status status);
+
+    String getPassword();
+
+    String getUsername();
 }

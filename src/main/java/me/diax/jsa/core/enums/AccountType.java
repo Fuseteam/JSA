@@ -23,14 +23,20 @@ package me.diax.jsa.core.enums;
  */
 public enum AccountType {
 
-    BOT(true),
-    USER(false),
-    GUEST(true);
+    BOT("Bot", true),
+    USER("User", false),
+    GUEST("Guest", true);
 
+    private String name;
     private boolean isBot;
 
-    AccountType(boolean isBot) {
+    AccountType(String name, boolean isBot) {
+        this.name  = name;
         this.isBot = isBot;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public boolean isBot() {

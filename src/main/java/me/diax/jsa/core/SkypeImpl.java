@@ -28,10 +28,27 @@ import me.diax.jsa.core.enums.Status;
 class SkypeImpl implements Skype {
 
     private Status status;
+    private final String username;
+    private final String password;
+
+    public SkypeImpl(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     @Override
     public Status getStatus() {
         return status;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 
     @Override

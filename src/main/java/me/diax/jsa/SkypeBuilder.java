@@ -23,28 +23,38 @@ package me.diax.jsa;
  */
 public class SkypeBuilder {
 
-    private AccountType type;
+    private final AccountType type;
 
     private String username;
     private String password;
 
-    public SkypeBuilder(AccountType type) {
-        this.type = type;
+    /**
+     * Constructor to create a user.
+     */
+    public SkypeBuilder() {
+        this.type = AccountType.USER;
     }
 
-    private enum AccountType {
-        USER(false),
-        BOT(true);
-
-        private boolean isBot;
-
-        AccountType(boolean isBot) {
-            this.isBot = isBot;
+    /**
+     * Constructor to set the account type.
+     *
+     * @param asBot If the account type should be a bot.
+     */
+    public SkypeBuilder(boolean asBot) {
+        if (asBot) {
+            type = AccountType.BOT;
+        } else {
+            type = AccountType.USER;
         }
+    }
 
-        public boolean isBot() {
-            return isBot;
-        }
+    /**
+     * Constructor to set the account type.
+     *
+     * @param type The {@link AccountType} of the account.
+     */
+    public SkypeBuilder(AccountType type) {
+        this.type = type;
     }
 
     /**
@@ -55,7 +65,6 @@ public class SkypeBuilder {
      * @return An instance of this, useful for chaining.
      */
     public SkypeBuilder setUserCredentials(String username, String password) {
-        if (type.isBot) throw new UnsupportedOperationException("This method can only be used for user accounts.");
         return setUsername(username).setPassword(password);
     }
 
@@ -66,7 +75,6 @@ public class SkypeBuilder {
      * @return An instance of this, useful for chaining.
      */
     public SkypeBuilder setUsername(String username) {
-        if (type.isBot) throw new UnsupportedOperationException("This method can only be used for user accounts.");
         this.username = username;
         return this;
     }
@@ -78,7 +86,6 @@ public class SkypeBuilder {
      * @return An instance of this, useful for chaining.
      */
     public SkypeBuilder setPassword(String password) {
-        if (type.isBot) throw new UnsupportedOperationException("This method can only be used for user accounts.");
         this.password = password;
         return this;
     }

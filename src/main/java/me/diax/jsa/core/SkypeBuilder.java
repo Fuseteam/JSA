@@ -18,6 +18,7 @@ package me.diax.jsa.core;
 
 import me.diax.jsa.bot.SkypeBot;
 import me.diax.jsa.core.enums.AccountType;
+import me.diax.jsa.core.request.Requests;
 import me.diax.jsa.user.SkypeUser;
 
 /**
@@ -85,11 +86,11 @@ public class SkypeBuilder {
     public Skype build() {
         switch (type) {
             case BOT:
-                return new SkypeBot(username, password);
+                return new SkypeBot(username, password).login();
             case USER:
-                return new SkypeUser(username, password);
+                return new SkypeUser(username, password).login();
             default:
-                return null;
+                throw new IllegalStateException("AccountType not specified.");
         }
     }
 }

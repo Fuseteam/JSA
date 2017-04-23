@@ -107,9 +107,9 @@ public class Requests {
 	}
 	
 	public class DefaultException extends RuntimeException {
-		
-		private static final long serialVersionUID = 1L;
-		
+
+        private static final long serialVersionUID = -1998707012868969655L;
+
 		public DefaultException(String s) {
 			super(s);
 		}

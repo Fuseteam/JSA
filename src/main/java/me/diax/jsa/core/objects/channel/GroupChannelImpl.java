@@ -17,12 +17,15 @@
 package me.diax.jsa.core.objects.channel;
 
 import me.diax.jsa.core.SkypeImpl;
+import me.diax.jsa.core.enums.Role;
 import me.diax.jsa.core.objects.contact.Contact;
 import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * Created by Comportment on 23/04/17.
@@ -33,58 +36,77 @@ public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
 
     private String topic;
     private String image;
+    private String joinUrl;
+
 
     public GroupChannelImpl(SkypeImpl client, String identifier) {
         super(client, identifier);
+        load();
+    }
+
+    @Override
+    protected void load() {
+        this.topic = "topic";
+        this.image = "image";
+        this.joinUrl = "joinurl";
+        this.users = null;
+        //TODO: WS stuff
     }
 
     @Override
     public List<User> getAdmins() {
-        return null;
+        return getUsers().values().stream().filter(user -> user.getRole().equals(Role.ADMIN)).collect(Collectors.toList());
     }
 
     @Override
     public TreeSet<Message> getMessages() {
-        return null;
+        return null; //TODO: WS stuff
     }
 
     @Override
     public TreeSet<Message> getMessageHistory(int amount) {
-        return null;
+        return null; //TODO: WS stuff
     }
 
     @Override
     public String getTopic() {
-        return null;
+        return topic;
     }
 
     @Override
     public String getJoinUrl() {
-        return null;
+        return joinUrl; //TODO:ws stuff
+    }
+
+    @Override
+    public String getImage() {
+        return image;
     }
 
     @Override
     public void setTopic(String topic) {
-
+        this.topic = topic; //TODO: WS stuff
     }
 
     @Override
-    public void setImage() {
-
+    public void setImage(String image) {
+        this.image = image; //TODO: WS stuff
     }
 
     @Override
     public void leave() {
-
+        //TODO: WS stuff
     }
 
     @Override
-    public void addUsers(Contact... contact) {
-
+    public void addUsers(Contact contact, Contact... contacts) {
+        List<Contact> contactList = Arrays.asList(contacts);
+        contactList.add(contact);
+        //TODO: WS stuff contactList.forEach(c -> c);
     }
 
     @Override
     public void addUser(Contact contact) {
-
+        addUsers(contact);
     }
 }

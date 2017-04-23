@@ -40,13 +40,15 @@ public interface GroupChannel extends ChannelBase {
 
     String getJoinUrl();
 
+    String getImage();
+
     void setTopic(String topic);
 
-    void setImage();
+    void setImage(String image);
 
     void leave();
 
-    void addUsers(Contact... contact);
+    void addUsers(Contact contact, Contact... contacts);
 
     void addUser(Contact contact);
 }

@@ -21,7 +21,6 @@ import me.diax.jsa.core.SkypeImpl;
 import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -33,7 +32,7 @@ public abstract class ChannelImpl implements ChannelBase {
 
     private final SkypeImpl client;
     private final String identifier;
-    private final Map<String, User> users = new HashMap<>();
+    protected Map<String, User> users;
 
     ChannelImpl(SkypeImpl client, String identifier) {
         this.client = client;
@@ -84,4 +83,6 @@ public abstract class ChannelImpl implements ChannelBase {
     public Map<String, User> getUsers() {
         return users;
     }
+
+   abstract protected void load();
 }

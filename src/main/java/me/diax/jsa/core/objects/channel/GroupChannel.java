@@ -17,11 +17,9 @@
 package me.diax.jsa.core.objects.channel;
 
 import me.diax.jsa.core.objects.contact.Contact;
-import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
 
 import java.util.List;
-import java.util.TreeSet;
 
 /**
  * Created by Comportment on 23/04/17.
@@ -30,25 +28,65 @@ import java.util.TreeSet;
  */
 public interface GroupChannel extends ChannelBase {
 
+    /**
+     * Gets all of the admins in the group.
+     *
+     * @return A {@link List} containing the admins of the group.
+     */
     List<User> getAdmins();
 
-    TreeSet<Message> getMessages();
-
-    TreeSet<Message> getMessageHistory(int amount);
-
+    /**
+     * Gets the topic of the channel.
+     *
+     * @return A string containing the topic of the channel.
+     */
     String getTopic();
 
-    String getJoinUrl();
-
-    String getImage();
-
+    /**
+     * Sets the topic of the channel.
+     *
+     * @param topic The topic to set.
+     */
     void setTopic(String topic);
 
+    /**
+     * Gets the join url of the channel.
+     *
+     * @return A string containing the join url of the channel, could be <code>null</code>
+     */
+    String getJoinUrl();
+
+    /**
+     * Gets the image url of the channel.
+     *
+     * @return A string containing the URL of the channel's image, code be <code>null</code>
+     */
+    String getImage();
+
+    /**
+     * Sets the image of the channel.
+     *
+     * @param image The direct URL of the image to set.
+     */
     void setImage(String image);
 
+    /**
+     * Makes the {@link me.diax.jsa.core.Skype} leave the channel.
+     */
     void leave();
 
-    void addUsers(Contact contact, Contact... contacts);
+    /**
+     * Adds multiple contacts to the channel.
+     *
+     * @param contact  The first {@link Contact} to add.
+     * @param contacts The rest of the {@link Contact}s to add.
+     */
+    void addContacts(Contact contact, Contact... contacts);
 
-    void addUser(Contact contact);
+    /**
+     * Adds a single contact to the channel.
+     *
+     * @param contact The {@link Contact} to add to the channel.
+     */
+    void addContact(Contact contact);
 }

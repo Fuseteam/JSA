@@ -59,11 +59,6 @@ public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
     }
 
     @Override
-    public TreeSet<Message> getMessages() {
-        return null; //TODO: WS stuff
-    }
-
-    @Override
     public TreeSet<Message> getMessageHistory(int amount) {
         return null; //TODO: WS stuff
     }
@@ -71,6 +66,11 @@ public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
     @Override
     public String getTopic() {
         return topic;
+    }
+
+    @Override
+    public void setTopic(String topic) {
+        this.topic = topic; //TODO: WS stuff
     }
 
     @Override
@@ -84,11 +84,6 @@ public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
     }
 
     @Override
-    public void setTopic(String topic) {
-        this.topic = topic; //TODO: WS stuff
-    }
-
-    @Override
     public void setImage(String image) {
         this.image = image; //TODO: WS stuff
     }
@@ -99,14 +94,14 @@ public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
     }
 
     @Override
-    public void addUsers(Contact contact, Contact... contacts) {
+    public void addContacts(Contact contact, Contact... contacts) {
         List<Contact> contactList = Arrays.asList(contacts);
         contactList.add(contact);
         //TODO: WS stuff contactList.forEach(c -> c);
     }
 
     @Override
-    public void addUser(Contact contact) {
-        addUsers(contact);
+    public void addContact(Contact contact) {
+        addContacts(contact);
     }
 }

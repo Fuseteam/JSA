@@ -20,8 +20,8 @@ import me.diax.jsa.core.Skype;
 import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
 
-import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 /**
  * Created by Comportment on 22/04/17.
@@ -30,21 +30,80 @@ import java.util.Map;
  */
 public interface ChannelBase {
 
+    /**
+     * Sends a string message to the channel.
+     *
+     * @param message The message to send.
+     */
     void sendMessage(String message);
 
+    /**
+     * Sends a {@link Message} to the channel.
+     *
+     * @param message The {@link Message to send}
+     */
     void sendMessage(Message message);
 
+    /**
+     * Sets if alerts should be on.
+     *
+     * @param on True to turn the alerts on, false to turn the alerts off.
+     */
     void setAlerts(boolean on);
 
+    /**
+     * Sets if you should get an alert from a keyword spoken in chat.
+     *
+     * @param keyword The keyword to get alerts for.
+     */
     void alertOn(String keyword);
 
+    /**
+     * Gets yourself.
+     *
+     * @return The {@link User} which represents yourself in the channel.
+     */
     User getSelfUser();
 
+    /**
+     * Gets the client linked to this channel.
+     *
+     * @return The {@link Skype} client linked to the channel.
+     */
     Skype getClient();
 
+    /**
+     * Gets the unique identifier for the channel.
+     *
+     * @return The identifier for the channel.
+     */
     String getIdentifier();
 
+    /**
+     * Gets the users participating in this channel.
+     *
+     * @return A {@link Map} containing the users and their names.
+     */
     Map<String, User> getUsers();
 
+    /**
+     * Gets a user from their name.
+     *
+     * @param name The name of the user to get.
+     * @return The {@link User} that was found, possibly <code>null</code>
+     */
     User getUser(String name);
+
+    /**
+     * Gets the messages in the channel.
+     *
+     * @return A {@link TreeSet} containing the messages ordered by the timestamp they were sent at.
+     */
+    TreeSet<Message> getMessages();
+
+    /**
+     * @param amount The amount of messages to retrieve.
+     * @return A {@link TreeSet} containing the
+     */
+    TreeSet<Message> getMessageHistory(int amount);
 }

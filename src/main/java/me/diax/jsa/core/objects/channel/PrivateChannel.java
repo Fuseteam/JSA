@@ -25,5 +25,8 @@ import me.diax.jsa.core.objects.user.User;
  */
 public interface PrivateChannel extends ChannelBase {
 
+    /**
+     * @return The other user you are chatting with.
+     */
     User getOtherUser();
 }

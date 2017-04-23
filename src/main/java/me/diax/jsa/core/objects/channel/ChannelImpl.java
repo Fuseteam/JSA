@@ -22,6 +22,7 @@ import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
 
 import java.util.Map;
+import java.util.TreeSet;
 
 /**
  * Created by Comportment on 23/04/17.
@@ -33,6 +34,7 @@ public abstract class ChannelImpl implements ChannelBase {
     private final SkypeImpl client;
     private final String identifier;
     protected Map<String, User> users;
+    protected TreeSet<Message> messages;
 
     ChannelImpl(SkypeImpl client, String identifier) {
         this.client = client;
@@ -82,6 +84,17 @@ public abstract class ChannelImpl implements ChannelBase {
     @Override
     public Map<String, User> getUsers() {
         return users;
+    }
+
+    @Override
+    public TreeSet<Message> getMessages() {
+        return messages;
+    }
+
+    @Override
+    public TreeSet<Message> getMessageHistory(int amount) {
+        //TODO: WS Stuff
+        return null;
     }
 
    abstract protected void load();

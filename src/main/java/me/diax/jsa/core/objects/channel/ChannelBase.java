@@ -17,25 +17,34 @@
 package me.diax.jsa.core.objects.channel;
 
 import me.diax.jsa.core.Skype;
+import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Comportment on 22/04/17.
  *
  * CAN YOU HEAR ME?
  */
-public interface MessageChannel {
+public interface ChannelBase {
 
-    MessageChannel sendMessage(String message);
-    MessageChannel setAlerts(boolean on);
-    MessageChannel alertOn(String keyword);
+    void sendMessage(String message);
+
+    void sendMessage(Message message);
+
+    void setAlerts(boolean on);
+
+    void alertOn(String keyword);
 
     User getSelfUser();
-    User getUserFromString(String user);
-
-    List<User> getUsers();
 
     Skype getClient();
+
+    String getIdentifier();
+
+    Map<String, User> getUsers();
+
+    User getUser(String name);
 }

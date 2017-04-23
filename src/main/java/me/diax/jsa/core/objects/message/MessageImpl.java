@@ -18,7 +18,7 @@ package me.diax.jsa.core.objects.message;
 
 import me.diax.jsa.core.SkypeImpl;
 import me.diax.jsa.core.objects.user.User;
-import me.diax.jsa.core.objects.channel.MessageChannel;
+import me.diax.jsa.core.objects.channel.ChannelBase;
 
 import java.sql.Timestamp;
 
@@ -34,10 +34,10 @@ public class MessageImpl implements Message {
     private String id;
     private Timestamp timestamp;
     private User sender;
-    private MessageChannel channel;
+    private ChannelBase channel;
     private SkypeImpl skype;
 
-    public MessageImpl(String content, String clientId, String id, Timestamp timestamp, User sender, MessageChannel channel, SkypeImpl skype) {
+    public MessageImpl(String content, String clientId, String id, Timestamp timestamp, User sender, ChannelBase channel, SkypeImpl skype) {
         this.content = content;
         this.clientId = clientId;
         this.id = id;
@@ -73,19 +73,22 @@ public class MessageImpl implements Message {
     }
 
     @Override
-    public MessageChannel getChannel() {
+    public ChannelBase getChannel() {
         return channel;
     }
 
     @Override
-    public Message setRawContent(String content) {
+    public void setRawContent(String content) {
         this.content = content;
-        return this;
     }
 
     @Override
-    public Message setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
-        return this;
+    }
+
+    @Override
+    public int compareTo(Message that) {
+        return this.getTimestamp().compareTo(that.getTimestamp());
     }
 }

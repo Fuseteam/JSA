@@ -101,23 +101,20 @@ public class ContactImpl implements Contact {
     }
 
     @Override
-    public Contact block() {
+    public void block() {
         if (isBlocked) throw new IllegalArgumentException("Contact is already blocked.");
         isBlocked = true; //TODO: Contact WS and block.
-        return this;
     }
 
     @Override
-    public Contact blockAndReportAbuse() {
+    public void blockAndReportAbuse() {
         if (isBlocked) throw new IllegalArgumentException("Contact is already blocked.");
         isBlocked = true; //TODO: Contact WS
-        return this;
     }
 
     @Override
-    public Contact unblock() {
+    public void unblock() {
         if (!isBlocked) throw new IllegalArgumentException("Contact is not blocked.");
         isBlocked = false; //TODO: Contact WS
-        return this;
     }
 }

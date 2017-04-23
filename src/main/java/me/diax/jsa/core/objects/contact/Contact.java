@@ -47,9 +47,9 @@ public interface Contact {
 
     boolean isFriend();
 
-    Contact block();
+    void block();
 
-    Contact blockAndReportAbuse();
+    void blockAndReportAbuse();
 
-    Contact unblock();
+    void unblock();
 }

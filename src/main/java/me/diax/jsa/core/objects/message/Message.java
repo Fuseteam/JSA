@@ -17,7 +17,7 @@
 package me.diax.jsa.core.objects.message;
 
 import me.diax.jsa.core.objects.user.User;
-import me.diax.jsa.core.objects.channel.MessageChannel;
+import me.diax.jsa.core.objects.channel.ChannelBase;
 
 import java.sql.Timestamp;
 
@@ -26,7 +26,7 @@ import java.sql.Timestamp;
  *
  * message massage
  */
-public interface Message {
+public interface Message extends Comparable<Message> {
 
     /**
      *
@@ -40,7 +40,7 @@ public interface Message {
      * @param content The content to set.
      * @return An instance of this, useful for chaining.
      */
-    Message setRawContent(String content);
+    void setRawContent(String content);
 
     /**
      *
@@ -65,7 +65,7 @@ public interface Message {
      * @param timestamp Sets the timestamp of the message.
      * @return An instance of this, useful for chaining.
      */
-    Message setTimestamp(Timestamp timestamp);
+    void setTimestamp(Timestamp timestamp);
 
     /**
      *
@@ -77,5 +77,5 @@ public interface Message {
      *
      * @return The channel the message was sent in.
      */
-    MessageChannel getChannel();
+    ChannelBase getChannel();
 }

@@ -37,7 +37,7 @@ public class SkypeBot extends SkypeImpl {
 
     @Override
     public SkypeBot login() {
-    	
+
     	getDispatcher().dispatch(request).handle(success -> {
     		if(success.getStatus() == 200) {
         		token = success.getBody().getObject().getString("access_token");

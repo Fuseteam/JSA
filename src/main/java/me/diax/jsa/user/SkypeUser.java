@@ -17,6 +17,8 @@
 package me.diax.jsa.user;
 
 import me.diax.jsa.core.SkypeImpl;
+import me.diax.jsa.core.request.Request;
+import me.diax.jsa.core.request.Requests;
 
 /**
  * Created by Comportment on 22/04/17.
@@ -26,10 +28,11 @@ import me.diax.jsa.core.SkypeImpl;
 public class SkypeUser extends SkypeImpl {
 
     private String password;
+    private final Request request;
 
     public SkypeUser(String username, String password) {
         super(username);
-        this.password = password;
+        this.request = Requests.getToken.body("&scope=client"); //TODO: Stuff
     }
 
     @Override

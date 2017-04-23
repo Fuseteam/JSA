@@ -16,10 +16,14 @@
 
 package me.diax.jsa.core.objects.channel;
 
+import me.diax.jsa.core.objects.user.User;
+
 /**
  * Created by Comportment on 22/04/17.
  *
  * Private channel ;)
  */
-public interface PrivateChannel extends MessageChannel {
+public interface PrivateChannel extends ChannelBase {
+
+    User getOtherUser();
 }

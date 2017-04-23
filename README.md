@@ -3,6 +3,7 @@
 -->
 <!DOCTYPE html>
 <html>
+<img src="https://github.com/Comportment/JSA/blob/master/JSA.png?raw=true" align="right" height="220" width="220"/>
     <header>
         <h1>JSA (Java Skype API)</h1>
         <p>A <b>work in progress</b> Java Skype Wrapper</p>

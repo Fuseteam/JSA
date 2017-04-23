@@ -16,6 +16,7 @@
 
 package me.diax.jsa.core.objects.channel;
 
+import me.diax.jsa.core.SkypeImpl;
 import me.diax.jsa.core.objects.contact.Contact;
 import me.diax.jsa.core.objects.message.Message;
 import me.diax.jsa.core.objects.user.User;
@@ -30,7 +31,11 @@ import java.util.TreeSet;
  */
 public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
 
-    @Override
+    GroupChannelImpl(SkypeImpl client, String identifier) {
+		super(client, identifier);
+	}
+
+	@Override
     public List<User> getAdmins() {
         return null;
     }

@@ -17,6 +17,6 @@
 /**
  * The root package for JSA.
  *
- * See {@link me.diax.jsa.core.Skype}.
+ * See {@link me.diax.jsa.core.Skype} and {@link me.diax.jsa.core.SkypeBuilder} for creating a client.
  */
 package me.diax.jsa;

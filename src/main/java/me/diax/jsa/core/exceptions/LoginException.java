@@ -7,6 +7,8 @@ package me.diax.jsa.core.exceptions;
  */
 public class LoginException extends SkypeException {
 
+    private static final long serialVersionUID = 2235885667706938090L;
+
     public LoginException() {
         super("Could not login.");
     }

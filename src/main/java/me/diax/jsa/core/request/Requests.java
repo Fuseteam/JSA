@@ -101,10 +101,8 @@ public class Requests {
 		if(header==null) throw new NullPointerException("Headers are required.");
 		if(!header.map.isEmpty()) {
 			HttpRequest httpRequest = request.getHttpRequest();
-			header.map.keySet().forEach(key -> {
-				httpRequest.header(key, header.map.get(key));
-			});
-		}
+            header.map.keySet().forEach(key -> httpRequest.header(key, header.map.get(key)));
+        }
 		return request;
 	}
 	

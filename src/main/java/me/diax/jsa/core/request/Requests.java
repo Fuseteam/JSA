@@ -16,16 +16,15 @@
 
 package me.diax.jsa.core.request;
 
-import java.util.concurrent.ExecutionException;
-
 import com.mashape.unirest.http.HttpMethod;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.BaseRequest;
 import com.mashape.unirest.request.HttpRequest;
-
 import me.diax.jsa.util.StringUtils;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Felix Vogel on 22/04/17
@@ -36,11 +35,21 @@ public class Requests {
 
 	protected static final String apiBaseUrl = "https://api.botframework.com";
 	protected static final String tokenBaseUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/token";
-	
 	public static final Request getToken = new Request(HttpMethod.POST, tokenBaseUrl, new Headers().add("Host", "login.microsoftonline.com").add("Content-Type", "application/x-www-form-urlencoded"), true); //body - grant_type=client_credentials&client_id=<YOUR MICROSOFT APP ID>&client_secret=<YOUR MICROSOFT APP PASSWORD>&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-	
-	public Response build(Request request, String... params) {
-		BaseRequest _request = create(request, params);
+    protected static final String version = "/v3";
+    protected static final String apiUrl = apiBaseUrl + version;
+    protected static final String conversation = apiUrl + "/conversation";
+    protected static final String activities = conversation + "/%s/activities";
+    protected static final String activityInfo = activities + "/%s";
+    protected static final String conversationMembers = conversation + "/members";
+    protected static final String activityMembers = activityInfo + "/members";
+    protected static final String botState = apiUrl + "/botstate/%s";
+    protected static final String deleteUser = botState + "/users/%s";
+    protected static final String conversationInfo = botState + "/conversations/%s";
+    protected static final String userInfo = conversationInfo + "/users/%s";
+
+    public Response build(Request request, String... params) {
+        BaseRequest _request = create(request, params);
 		HttpResponse<JsonNode> data = null;
 		try {
 			data = _request.asJsonAsync().get();

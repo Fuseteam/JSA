@@ -31,11 +31,14 @@ import java.util.TreeSet;
  */
 public class GroupChannelImpl extends ChannelImpl implements GroupChannel {
 
-    GroupChannelImpl(SkypeImpl client, String identifier) {
-		super(client, identifier);
-	}
+    private String topic;
+    private String image;
 
-	@Override
+    public GroupChannelImpl(SkypeImpl client, String identifier) {
+        super(client, identifier);
+    }
+
+    @Override
     public List<User> getAdmins() {
         return null;
     }

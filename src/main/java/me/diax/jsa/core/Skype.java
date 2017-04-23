@@ -17,6 +17,7 @@
 package me.diax.jsa.core;
 
 import me.diax.jsa.core.enums.Status;
+import me.diax.jsa.core.exceptions.LoginException;
 import me.diax.jsa.core.request.Dispatcher;
 
 /**
@@ -41,18 +42,17 @@ public interface Skype {
     Skype setStatus(Status status);
 
     /**
+     * @return The mood message of the client.
+     */
+    String getMoodMessage();
+
+    /**
      * Sets the mood message of the client.
      *
      * @param moodMessage The mood message to set.
      * @return An instance of this, useful for chaining.
      */
     Skype setMoodMessage(String moodMessage);
-
-    /**
-     *
-     * @return The mood message of the client.
-     */
-    String getMoodMessage();
 
     /**
      *
@@ -65,7 +65,7 @@ public interface Skype {
      *
      * @return An instance of this, useful for chaining.
      */
-    Skype login();
+    Skype login() throws LoginException;
 
     /**
      * Logs out of Skype.

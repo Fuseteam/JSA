@@ -17,6 +17,7 @@
 package me.diax.jsa.bot;
 
 import me.diax.jsa.core.SkypeImpl;
+import me.diax.jsa.core.exceptions.LoginException;
 import me.diax.jsa.core.request.Request;
 import me.diax.jsa.core.request.Requests;
 
@@ -27,16 +28,16 @@ import me.diax.jsa.core.request.Requests;
  */
 public class SkypeBot extends SkypeImpl {
 
-	private String token;
 	private final Request request;
-	
+    private String token;
+
     public SkypeBot(String client_id, String secret) {
         super(client_id);
         request = Requests.getToken.body("grant_type=client_credentials&client_id=" + client_id + "&client_secret=" + secret + "&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default");
     }
 
     @Override
-    public SkypeBot login() {
+    public SkypeBot login() throws LoginException {
 
     	getDispatcher().dispatch(request).handle(success -> {
     		if(success.getStatus() == 200) {
@@ -45,7 +46,9 @@ public class SkypeBot extends SkypeImpl {
     		} else {
     			System.out.println(success.getBody());
     		}
-    	}, failure -> System.out.println(failure.getMessage()));
+        }, failure -> {
+            throw new LoginException(failure.getMessage());
+        });
         return this;
     }
 

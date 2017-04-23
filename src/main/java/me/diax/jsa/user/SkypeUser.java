@@ -17,6 +17,7 @@
 package me.diax.jsa.user;
 
 import me.diax.jsa.core.SkypeImpl;
+import me.diax.jsa.core.exceptions.LoginException;
 import me.diax.jsa.core.request.Request;
 import me.diax.jsa.core.request.Requests;
 
@@ -27,8 +28,8 @@ import me.diax.jsa.core.request.Requests;
  */
 public class SkypeUser extends SkypeImpl {
 
-    private String password;
     private final Request request;
+    private String password;
 
     public SkypeUser(String username, String password) {
         super(username);
@@ -36,9 +37,9 @@ public class SkypeUser extends SkypeImpl {
     }
 
     @Override
-    public SkypeUser login() {
+    public SkypeUser login() throws LoginException {
+        throw new LoginException("User accounts are currently not supported.");
         //TODO: Stuff
-        return this;
     }
 
     public SkypeUser logout() {

@@ -32,5 +32,4 @@ public class Dispatcher {
 	public Response dispatch(Request request, String... params) {
 		return requests.build(request, params);
 	}
-	
 }

@@ -6,7 +6,8 @@
 <img src="https://github.com/Comportment/JSA/blob/master/branding/JSA_rounded.jpg?raw=true" align="right" height="275" width="275"/>
     <header>
         <h1>JSA (Java Skype API)</h1>
-        <p>A <b>work in progress</b> Java Skype Wrapper</p>
+        <p>A <b>work in progress</b> Skype Wrapper for Java.</p>
+        <p>Any PRs will gladly be accepted.<br /> Please tell your friends!<br />Our official Discord for help using the library is here: https://discord.gg/ht2y8h6</p>
     </header>
     <body>
         <h2>Licence</h2>

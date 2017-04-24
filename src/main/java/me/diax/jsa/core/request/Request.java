@@ -20,55 +20,55 @@ import com.mashape.unirest.http.HttpMethod;
 
 /**
  * Created by Felix Vogel on 22/04/17
- * 
+ *
  * The class representing a http/https request.
  */
 public class Request {
 
-	protected final HttpMethod method;
-	protected final String baseUrl, point;
-	protected final Headers headers;
-	protected final boolean requiresBody;
-	
-	protected String body = null;
-	
-	private boolean hasBody = false;
-	
-	public Request(HttpMethod method, String baseUrl) {
-		this(method, baseUrl, "", new Headers(), false);
-	}
-	
-	public Request(HttpMethod method, String baseUrl, boolean requiresBody) {
-		this(method, baseUrl, "", new Headers(), requiresBody);
-	}
-	
-	public Request(HttpMethod method, String baseUrl, Headers headers) {
-		this(method, baseUrl, "", headers, false);
-	}
-	
-	public Request(HttpMethod method, String baseUrl, Headers headers, boolean requiresBody) {
-		this(method, baseUrl, "", headers, requiresBody);
-	}
-	
-	public Request(HttpMethod method, String baseUrl, String point, Headers headers) {
-		this(method, baseUrl, point, headers, false);
-	}
-	
-	public Request(HttpMethod method, String baseUrl, String point, Headers header, boolean requiresBody) {
-		this.method = method;
-		this.baseUrl = baseUrl;
-		this.point = point;
-		this.headers = header;
-		this.requiresBody = requiresBody;
-	}
-	
-	public Request body(String body) {
-		this.body = body;
-		this.hasBody = body!=null && !body.isEmpty();
-		return this;
-	}
-	
-	public boolean hasBody() {
-		return hasBody;
-	}
+    protected final HttpMethod method;
+    protected final String baseUrl, point;
+    protected final Headers headers;
+    protected final boolean requiresBody;
+
+    protected String body = null;
+
+    private boolean hasBody = false;
+
+    public Request(HttpMethod method, String baseUrl) {
+        this(method, baseUrl, "", new Headers(), false);
+    }
+
+    public Request(HttpMethod method, String baseUrl, boolean requiresBody) {
+        this(method, baseUrl, "", new Headers(), requiresBody);
+    }
+
+    public Request(HttpMethod method, String baseUrl, Headers headers) {
+        this(method, baseUrl, "", headers, false);
+    }
+
+    public Request(HttpMethod method, String baseUrl, Headers headers, boolean requiresBody) {
+        this(method, baseUrl, "", headers, requiresBody);
+    }
+
+    public Request(HttpMethod method, String baseUrl, String point, Headers headers) {
+        this(method, baseUrl, point, headers, false);
+    }
+
+    public Request(HttpMethod method, String baseUrl, String point, Headers header, boolean requiresBody) {
+        this.method = method;
+        this.baseUrl = baseUrl;
+        this.point = point;
+        this.headers = header;
+        this.requiresBody = requiresBody;
+    }
+
+    public Request body(String body) {
+        this.body = body;
+        this.hasBody = body != null && !body.isEmpty();
+        return this;
+    }
+
+    public boolean hasBody() {
+        return hasBody;
+    }
 }

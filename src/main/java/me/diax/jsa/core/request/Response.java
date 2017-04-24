@@ -16,47 +16,47 @@
 
 package me.diax.jsa.core.request;
 
-import java.util.function.Consumer;
-
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 
+import java.util.function.Consumer;
+
 /**
  * Created by Felix Vogel on 22/04/17
- * 
+ *
  * This class represents the http/https request response
  */
 public class Response {
 
-	protected HttpResponse<JsonNode> data;
-	protected boolean failed;
-	protected Throwable reason;
-	
-	public Response(HttpResponse<JsonNode> data) {
-		this.data = data;
-		this.failed = false;
-		this.reason = null;
-	}
-	
-	public Response(Throwable reason) {
-		this.data = null;
-		this.failed = true;
-		this.reason = reason;
-	}
-	
-	public void handle(Consumer<HttpResponse<JsonNode>> handle) {
-		handle(handle, null);
-	}
-	
-	public void handle(Consumer<HttpResponse<JsonNode>> success, Consumer<Throwable> failure) {
-		if(success!=null&&!this.failed) if(data!=null) success.accept(data);
-		if(failure!=null&&this.failed) {
-			if(reason!=null) failure.accept(reason);
-		}
-	}
+    protected HttpResponse<JsonNode> data;
+    protected boolean failed;
+    protected Throwable reason;
 
-	public HttpResponse<JsonNode> get() {
-		if(failed) return null;
-		else return data;
-	}
+    public Response(HttpResponse<JsonNode> data) {
+        this.data = data;
+        this.failed = false;
+        this.reason = null;
+    }
+
+    public Response(Throwable reason) {
+        this.data = null;
+        this.failed = true;
+        this.reason = reason;
+    }
+
+    public void handle(Consumer<HttpResponse<JsonNode>> handle) {
+        handle(handle, null);
+    }
+
+    public void handle(Consumer<HttpResponse<JsonNode>> success, Consumer<Throwable> failure) {
+        if (success != null && !this.failed) if (data != null) success.accept(data);
+        if (failure != null && this.failed) {
+            if (reason != null) failure.accept(reason);
+        }
+    }
+
+    public HttpResponse<JsonNode> get() {
+        if (failed) return null;
+        else return data;
+    }
 }

@@ -18,18 +18,18 @@ package me.diax.jsa.core.request;
 
 /**
  * Created by Felix Vogel on 22/04/17
- * 
+ *
  * The Dispatcher for http/https requests
  */
 public class Dispatcher {
 
-	Requests requests;
-	
-	public Dispatcher() {
-		requests = new Requests();
-	}
-	
-	public Response dispatch(Request request, String... params) {
-		return requests.build(request, params);
-	}
+    Requests requests;
+
+    public Dispatcher() {
+        requests = new Requests();
+    }
+
+    public Response dispatch(Request request, String... params) {
+        return requests.build(request, params);
+    }
 }

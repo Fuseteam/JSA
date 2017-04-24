@@ -11,4 +11,4 @@ target/
 test/*
 
 # Other
-src/example/*
+testing/

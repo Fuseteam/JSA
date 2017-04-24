@@ -21,19 +21,19 @@ import java.util.Map;
 
 /**
  * Created by Felix Vogel on 22/04/17
- * 
+ *
  * The class representing http/https Header
  */
 public class Headers {
 
-	protected final Map<String, String> map;
-	
-	public Headers() {
-		map = new HashMap<>();
-	}
-	
-	public Headers add(String key, String value) {
-		map.put(key, value);
-		return this;
-	}
+    protected final Map<String, String> map;
+
+    public Headers() {
+        map = new HashMap<>();
+    }
+
+    public Headers add(String key, String value) {
+        map.put(key, value);
+        return this;
+    }
 }

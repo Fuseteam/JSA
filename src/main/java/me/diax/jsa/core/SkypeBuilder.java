@@ -38,8 +38,8 @@ public class SkypeBuilder {
      * @param type The {@link AccountType} of the account.
      */
     public SkypeBuilder(AccountType type) {
-        if (type.equals(AccountType.GUEST)) {
-            throw new UnsupportedOperationException("Guest accounts have not been implemented yet.");
+        if (!type.equals(AccountType.BOT)) {
+            throw new UnsupportedOperationException("Support for this account type has not been implemented yet.");
         }
         this.type = type;
     }

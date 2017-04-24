@@ -7,12 +7,12 @@
     <header>
         <h1>JSA (Java Skype API)</h1>
         <p>A <b>work in progress</b> Skype Wrapper for Java.</p>
-        <p>Any PRs will gladly be accepted.<br /> Please tell your friends!<br />Our official Discord for help using the library is here: https://discord.gg/ht2y8h6</p>
+        <p>Bot accounts are nearly done, user not guest accounts are not yet supported.</p>
+        <p>Any PRs will gladly be accepted.<br /> Please tell your friends about this!<br />Our official Discord guilds for help with JSA can be found here: https://discord.gg/ht2y8h6</p>
     </header>
     <body>
         <h2>Licence</h2>
         <p>Copyright 2017 Comportment
-        
 Licensed under the Apache License, Version 2.0 (the "License"); <br />
 you may not use this file except in compliance with the License. <br />
 You may obtain a copy of the License at <br />                           
